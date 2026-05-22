@@ -9,3 +9,10 @@ offset_right = 1112.0
 offset_bottom = 438.0
 theme_override_font_sizes/font_size = 201
 text = "Hello rena"
+
+[node name="Label2" type="Label" parent="." unique_id=968366189]
+offset_left = 870.0
+offset_top = 508.0
+offset_right = 928.0
+offset_bottom = 531.0
+text = "Hi Riley"
