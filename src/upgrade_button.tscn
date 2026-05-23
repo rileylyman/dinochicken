@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dd8orw232rkpb"]
+
+[ext_resource type="Theme" uid="uid://y6v0ru5yria1" path="res://src/theme.tres" id="1_xyia7"]
+[ext_resource type="Script" uid="uid://dlvgajrgwfejt" path="res://src/upgrade_button.gd" id="2_cuedw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_515sp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xyia7"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xyia7"]
+font_size = 14
+font_color = Color(0.76, 0.76, 0.76, 1)
+
+[node name="UpgradeButton" type="MarginContainer" unique_id=1808351154]
+theme = ExtResource("1_xyia7")
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+script = ExtResource("2_cuedw")
+
+[node name="MainRow" type="HBoxContainer" parent="." unique_id=428549638]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainRow" unique_id=1118915559]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "- Hire lab worker"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MainRow/Label" unique_id=349293062]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="VSeparator" type="VSeparator" parent="MainRow" unique_id=60398198]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_515sp")
+
+[node name="Button" type="Button" parent="MainRow" unique_id=222343117]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_type_variation = &"UpgradeButton"
+text = "50 DNA"
+
+[node name="Control" type="Control" parent="." unique_id=607880085]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Tooltip" type="PanelContainer" parent="Control" unique_id=1123424503]
+unique_name_in_owner = true
+z_index = 1
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+offset_left = 156.0
+offset_top = 63.0
+offset_right = 418.0
+offset_bottom = 149.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xyia7")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Tooltip" unique_id=1283802525]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Tooltip/PanelContainer" unique_id=687609973]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Tooltip/PanelContainer/MarginContainer" unique_id=1988055050]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Desc" type="Label" parent="Control/Tooltip/PanelContainer/MarginContainer/VBoxContainer" unique_id=1675858101]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0.345)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_xyia7")
+autowrap_mode = 3
+
+[node name="CostProg" type="Label" parent="Control/Tooltip/PanelContainer/MarginContainer/VBoxContainer" unique_id=113327459]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0.245)
+layout_mode = 2
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="MainRow/Label" to="." method="_on_main_row_mouse_entered"]
+[connection signal="mouse_exited" from="MainRow/Label" to="." method="_on_main_row_mouse_exited"]
+[connection signal="mouse_entered" from="MainRow/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="MainRow/Button" to="." method="_on_button_mouse_exited"]
