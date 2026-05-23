@@ -65,6 +65,7 @@ mouse_filter = 2
 
 [node name="Tooltip" type="PanelContainer" parent="Control" unique_id=1123424503]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 clip_contents = true
 custom_minimum_size = Vector2(200, 0)

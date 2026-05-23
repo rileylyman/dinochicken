@@ -40,6 +40,7 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer" unique_id=1144034599]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="TopBar" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=238020217]
 unique_name_in_owner = true
@@ -57,6 +58,7 @@ text = "Lab"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=1314193775]
 layout_mode = 2
+theme_override_constants/separation = 4
 theme_override_styles/separator = SubResource("StyleBoxLine_515sp")
 
 [node name="Button" type="Button" parent="." unique_id=646657901]
@@ -72,5 +74,7 @@ grow_horizontal = 0
 mouse_default_cursor_shape = 2
 text = "X"
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="gui_input" from="MarginContainer/PanelContainer/VBoxContainer/TopBar" to="." method="_on_top_bar_gui_input"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -7,6 +7,14 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02y5j"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dnhj"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dnhj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_irs2y"]
+
 [node name="Ui" type="Control" unique_id=1945005809]
 layout_mode = 3
 anchors_preset = 15
@@ -86,10 +94,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 292.0
-offset_top = 141.0
-offset_right = 729.0
-offset_bottom = 601.0
+offset_left = 1332.0
+offset_top = 115.0
+offset_right = 1769.0
+offset_bottom = 575.0
 grow_horizontal = 1
 grow_vertical = 1
 fade_out_target = NodePath("../VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/LabButton")
@@ -99,37 +107,342 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxEmpty_02y5j")
 
-[node name="UpgradeButton" parent="LabFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1052233752, 1144034599) index="3" unique_id=1808351154 instance=ExtResource("3_02y5j")]
+[node name="VBoxContainer" type="VBoxContainer" parent="LabFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1052233752, 1144034599) index="3" unique_id=1202573563]
+layout_mode = 2
+
+[node name="UpgradeButton" parent="LabFloater/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=1808351154 instance=ExtResource("3_02y5j")]
 layout_mode = 2
 title = "Hire lab worker"
 desc = "Scientists +1"
 cost = 10.0
 currency = 1
 
-[node name="UpgradeButton2" parent="LabFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1052233752, 1144034599) index="4" unique_id=745014714 instance=ExtResource("3_02y5j")]
+[node name="UpgradeButton2" parent="LabFloater/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=745014714 instance=ExtResource("3_02y5j")]
 layout_mode = 2
 title = "Perform research"
 desc = "+120% DNA/vial"
 cost = 10.0
 
-[node name="UpgradeButton3" parent="LabFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1052233752, 1144034599) index="5" unique_id=1998707095 instance=ExtResource("3_02y5j")]
+[node name="UpgradeButton3" parent="LabFloater/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=1998707095 instance=ExtResource("3_02y5j")]
 layout_mode = 2
 title = "Buy staff lunch"
 desc = "Scientists work +120% faster."
 cost = 10.0
 currency = 2
 
-[node name="UpgradeButton4" parent="LabFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1052233752, 1144034599) index="6" unique_id=1017167787 instance=ExtResource("3_02y5j")]
+[node name="UpgradeButton4" parent="LabFloater/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=1017167787 instance=ExtResource("3_02y5j")]
 layout_mode = 2
 title = "Facility renovation"
 desc = "Scientist capacity +10. "
 cost = 100.0
 currency = 1
 
-[node name="HSeparator3" type="HSeparator" parent="LabFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1052233752, 1144034599) index="7" unique_id=1081250930]
+[node name="HSeparator3" type="HSeparator" parent="LabFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1052233752, 1144034599) index="4" unique_id=1081250930]
 layout_mode = 2
 theme_override_constants/separation = 15
 theme_override_styles/separator = SubResource("StyleBoxEmpty_02y5j")
+
+[node name="FieldFloater" parent="." unique_id=1939297988 node_paths=PackedStringArray("fade_out_target") instance=ExtResource("2_515sp")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1864.0
+offset_top = 126.0
+offset_right = 2301.0
+offset_bottom = 586.0
+grow_horizontal = 1
+grow_vertical = 1
+fade_out_target = NodePath("../VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/FieldButton")
+
+[node name="Label" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer/TopBar" parent_id_path=PackedInt32Array(1939297988, 238020217) index="0" unique_id=1594306865]
+text = "Field"
+
+[node name="ColorRect" type="ColorRect" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1939297988, 1144034599) index="2" unique_id=1129728707]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer/ColorRect" unique_id=1943210665]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4dnhj")
+
+[node name="MarginContainer" type="MarginContainer" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer/ColorRect/PanelContainer" unique_id=1586474134]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer/ColorRect/PanelContainer/MarginContainer" unique_id=1198151955]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer/ColorRect/PanelContainer/MarginContainer/HBoxContainer" unique_id=1002598052]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Dino's: 10/15"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer/ColorRect/PanelContainer/MarginContainer/HBoxContainer" unique_id=2082939977]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hunger: 20%"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1939297988, 1144034599) index="3" unique_id=427878230]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_02y5j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1939297988, 1144034599) index="4" unique_id=881897624]
+layout_mode = 2
+
+[node name="UpgradeButton" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=1488452557 instance=ExtResource("3_02y5j")]
+layout_mode = 2
+title = "Breed new dinosaur"
+desc = "Dinosaurs +1"
+cost = 50.0
+currency = 1
+
+[node name="UpgradeButton2" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=114678742 instance=ExtResource("3_02y5j")]
+layout_mode = 2
+title = "Feed dinosaurs"
+desc = "Scientists +1"
+cost = 10.0
+currency = 1
+
+[node name="HSeparator3" type="HSeparator" parent="FieldFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1939297988, 1144034599) index="5" unique_id=1696099205]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_02y5j")
+
+[node name="FarmFloater" parent="." unique_id=1670280124 node_paths=PackedStringArray("fade_out_target") instance=ExtResource("2_515sp")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1332.0
+offset_top = 607.0
+offset_right = 1769.0
+offset_bottom = 1067.0
+grow_horizontal = 1
+grow_vertical = 1
+fade_out_target = NodePath("../VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/FarmButton")
+
+[node name="Label" parent="FarmFloater/MarginContainer/PanelContainer/VBoxContainer/TopBar" parent_id_path=PackedInt32Array(1670280124, 238020217) index="0" unique_id=1594306865]
+text = "Farm"
+
+[node name="HSeparator2" type="HSeparator" parent="FarmFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1670280124, 1144034599) index="2" unique_id=1261607778]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxEmpty_02y5j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FarmFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1670280124, 1144034599) index="3" unique_id=1922276789]
+layout_mode = 2
+
+[node name="UpgradeButton" parent="FarmFloater/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=165931918 instance=ExtResource("3_02y5j")]
+layout_mode = 2
+title = "Genetically modify seeds"
+desc = "Dinosaurs +1"
+cost = 50.0
+currency = 1
+
+[node name="UpgradeButton2" parent="FarmFloater/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=1362859531 instance=ExtResource("3_02y5j")]
+layout_mode = 2
+title = "Spread fertilizer"
+desc = "Scientists +1"
+cost = 10.0
+
+[node name="UpgradeButton3" parent="FarmFloater/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=1060319038 instance=ExtResource("3_02y5j")]
+layout_mode = 2
+title = "Plant seeds"
+desc = "Scientists +1"
+cost = 10.0
+currency = 2
+
+[node name="HSeparator4" type="HSeparator" parent="FarmFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1670280124, 1144034599) index="4" unique_id=597492206]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4dnhj")
+
+[node name="HSeparator3" type="HSeparator" parent="FarmFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1670280124, 1144034599) index="5" unique_id=1120434158]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_02y5j")
+
+[node name="EvoFloater" parent="." unique_id=1014161459 node_paths=PackedStringArray("fade_out_target") instance=ExtResource("2_515sp")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1850.0
+offset_top = 613.0
+offset_right = 2173.0
+offset_bottom = 1114.0
+grow_horizontal = 1
+grow_vertical = 1
+fade_out_target = NodePath("../VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EvoButton")
+
+[node name="Label" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/TopBar" parent_id_path=PackedInt32Array(1014161459, 238020217) index="0" unique_id=1594306865]
+text = "Evolution"
+
+[node name="HSeparator4" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(1014161459, 1144034599) index="2" unique_id=1155742957]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4" unique_id=947207102]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer" unique_id=1959590726]
+layout_mode = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer" unique_id=1761946928]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer" unique_id=1911475504]
+layout_mode = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer5" unique_id=1822845102]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer" unique_id=1562026305]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer2" unique_id=473714652]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="ColorRect" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer2" unique_id=585649591]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer2" unique_id=908283306]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="ColorRect2" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer2" unique_id=2103938897]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer2" unique_id=592192824]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer" unique_id=145783609]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer3" unique_id=1163838207]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="ColorRect" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer3" unique_id=322019717]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer3" unique_id=102981462]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="ColorRect3" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer3" unique_id=1484087662]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer3" unique_id=939083481]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="ColorRect4" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer3" unique_id=1140122049]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer3" unique_id=1085816400]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="ColorRect2" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer3" unique_id=1007918237]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer3" unique_id=1572075675]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer" unique_id=811397028]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer4" unique_id=923865495]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="ColorRect" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer4" unique_id=159227117]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer4" unique_id=1761462026]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="ColorRect3" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer4" unique_id=90037358]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer4" unique_id=96929161]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="ColorRect4" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer4" unique_id=8252621]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer4" unique_id=167742526]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
+
+[node name="ColorRect2" type="ColorRect" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer4" unique_id=160266670]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="EvoFloater/MarginContainer/PanelContainer/VBoxContainer/HSeparator4/VBoxContainer/HBoxContainer4" unique_id=1405288389]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_irs2y")
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/FieldButton" to="." method="_on_field_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/LabButton" to="." method="_on_lab_button_pressed"]
@@ -137,3 +450,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_02y5j")
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EvoButton" to="." method="_on_evo_button_pressed"]
 
 [editable path="LabFloater"]
+[editable path="FieldFloater"]
+[editable path="FarmFloater"]
+[editable path="EvoFloater"]

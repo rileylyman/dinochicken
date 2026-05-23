@@ -1,3 +1,4 @@
+class_name Floater
 extends ColorRect
 
 const padding_x := 128
@@ -50,3 +51,12 @@ func _on_button_pressed() -> void:
 		fade_out(fade_out_target.global_position)
 	else:
 		fade_out(Vector2.ZERO)
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		var hovered := get_viewport().gui_get_hovered_control()
+		if hovered == self or self.is_ancestor_of(hovered):
+			if get_tree().current_scene is RootUi:
+				get_tree().current_scene.send_floater_to_front(self)
+
