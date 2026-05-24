@@ -41,11 +41,12 @@ func Get_Dino_Name_String(type:DinoType):
 		DinoType.Trex:
 			return "Trex"
 			
-# incremental test		
+### Incremental Test		
 var timer: float = 0.0
 var speedDNA = 0.5
 var speedFOOD = 0.4
 var speedPOOP = 0.3
+###
 
 var tmpAmountDNA = amountDNA
 var tmpAmountFOOD = amountFOOD
