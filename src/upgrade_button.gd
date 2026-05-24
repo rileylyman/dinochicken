@@ -1,38 +1,25 @@
 @tool
 extends MarginContainer
 
-enum Currency {
-	POOP,
-	DNA,
-	FOOD,
-}
 
-func currency_to_string(c: Currency) -> String:
+func currency_to_string(c) -> String:
 	match c:
-		Currency.POOP:
+		global.Currency.POOP:
 			return "P"
-		Currency.DNA:
+		global.Currency.DNA:
 			return "D"
-		Currency.FOOD:
+		global.Currency.FOOD:
 			return "F"
 		_:
 			assert(false)
 			return "Poop"
-func Get_Currency_Amount(c:Currency):
-	if Engine.is_editor_hint():
-		return "0"
-	match c:
-		Currency.POOP:
-			return str(global.amountPoop)
-		Currency.DNA:
-			return str(global.amountDNA)
-		Currency.FOOD:
-			return str(global.amountFood)
+
+
 
 @export_multiline var title: String = "FILL ME IN"
 @export_multiline var desc: String = "FILL ME IN"
 @export var cost: float = 0.0
-@export var currency: Currency = Currency.POOP
+@export var currency = global.Currency.POOP
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -43,14 +30,13 @@ func _ready() -> void:
 	%Tooltip.visible = false
 
 func _process(_delta: float) -> void:
+	if Engine.is_editor_hint(): 
+		return
 	%Label.text = "- %s" % title
 	%Button.text = "%d %s" % [cost, currency_to_string(currency)]
 	%Desc.text = desc # description
-	%CostProg.text = "%s/%d %s" % [Get_Currency_Amount(currency), cost, currency_to_string(currency)]
+	%CostProg.text = "%s/%d %s" % [str(global.Get_Currency_Amount(currency)), cost, currency_to_string(currency)]
 
-	if Engine.is_editor_hint():
-		return
-			
 
 
 func _on_hover(control: Control) -> void:
@@ -85,3 +71,19 @@ func _on_button_mouse_entered() -> void:
 
 func _on_button_mouse_exited() -> void:
 	%Tooltip.visible = false
+
+
+func Can_Click():
+	if Engine.is_editor_hint(): 
+		return false
+	if global.Get_Currency_Amount(currency) >= cost:
+		return true
+	else:
+		return false
+
+func Upgrade():
+	if Engine.is_editor_hint(): 
+		return false
+	# consume currency and update new cost based on Dict?
+	global.Change_Currency_Amount(currency, -cost)
+	# Update to new cost here

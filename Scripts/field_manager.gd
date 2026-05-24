@@ -15,10 +15,13 @@ func Add_Dino_Number(num: int):
 	curDinoNum += num
 	%DinoNum.text = "Dino's: %d/%d" % [curDinoNum, maxDinoNum]
 
+# Breed Dinosaur Button
+@onready var btAddDino: MarginContainer = $"../MarginContainer/PanelContainer/VBoxContainer/VBoxContainer/UpgradeButton"
 func _on_button_pressed() -> void:
-	if curDinoNum < maxDinoNum:
+	if curDinoNum < maxDinoNum and btAddDino.Can_Click():
 		Spawn_Dino(global.curDinoType)
 		Add_Dino_Number(1)
+		btAddDino.Upgrade()
 		# spawn dinosaur
 		# based on the type of the dinosaur
 
