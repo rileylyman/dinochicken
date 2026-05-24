@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://da103pl1y2ns2"]
+
+[ext_resource type="Texture2D" uid="uid://cdfaqdl36f4eh" path="res://Assets/formal/poop/poop-1.png" id="1_3co1v"]
+[ext_resource type="Texture2D" uid="uid://dvclt7uv7o6jm" path="res://Assets/formal/poop/poop-2.png" id="2_7xh6s"]
+[ext_resource type="Texture2D" uid="uid://5tk3qbn67wsf" path="res://Assets/formal/poop/poop-3.png" id="3_epxge"]
+[ext_resource type="Texture2D" uid="uid://cqwgyjx8u0b3n" path="res://Assets/formal/poop/poop-4.png" id="4_8jvc1"]
+[ext_resource type="Script" uid="uid://biu5kn5r3w1ew" path="res://Scripts/poop.gd" id="5_7xh6s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgema"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3co1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7xh6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_epxge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8jvc1")
+}],
+"loop": false,
+"name": &"pooping",
+"speed": 5.0
+}]
+
+[node name="Poop" type="AnimatedSprite2D" unique_id=3169392]
+texture_filter = 1
+position = Vector2(0, 25)
+sprite_frames = SubResource("SpriteFrames_hgema")
+animation = &"pooping"
+frame_progress = 0.40507874
+script = ExtResource("5_7xh6s")

@@ -256,6 +256,14 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="DinoPoop" type="Control" parent="FieldFloater/DinoArea" unique_id=2056747071]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -8.5
+offset_top = -80.0
+offset_right = 31.5
+offset_bottom = -40.0
+
 [node name="FarmFloater" parent="." unique_id=1670280124 node_paths=PackedStringArray("fade_out_target") instance=ExtResource("3_8ec3e")]
 unique_name_in_owner = true
 layout_mode = 0

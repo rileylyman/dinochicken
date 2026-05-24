@@ -4,8 +4,26 @@ var curDinoNum: int = 0 # initial dinosaur number
 @export var maxDinoNum: int = 15 # initial maximum dinosaur number
 var activeDinos: Array[Dinosaur] = []
 
+# 用于控制拉屎间隔的计时器
+var poopTimer: float = 0.0
+
 func _ready():
 	Initialize_Dino_Number()
+	# 初始化时，先让计时器等于全局的拉屎间隔
+	poopTimer = global.poopInterval
+
+func _process(delta: float) -> void:
+	if activeDinos.is_empty():
+		return
+		
+	# 倒计时逻辑
+	poopTimer -= delta
+	if poopTimer <= 0.0:
+		poopTimer = global.poopInterval
+		
+		var randomDino = activeDinos.pick_random()
+		if randomDino:
+			randomDino.Spawn_Poop(randomDino.dinoType, randomDino.position + Vector2(0, 100), 1)
 
 # Dino Number
 func Initialize_Dino_Number():
@@ -48,7 +66,7 @@ func Spawn_Dino(type:global.DinoType):
 
 
 ### ONLY FOR TEST ###
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_X:
-			Add_Dino_Number(1)
+#func _input(event: InputEvent) -> void:
+	#if event is InputEventKey and event.pressed:
+		#if event.keycode == KEY_X:
+			#Add_Dino_Number(1)

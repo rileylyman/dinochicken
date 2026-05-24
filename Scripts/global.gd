@@ -8,6 +8,8 @@ var amountDNA: float = 1500.0
 var amountPOOP: float = 0.0
 var amountFOOD: float = 0.0
 
+var poopInterval:float = 10.0
+
 func Change_Currency_Amount(c, a: float):
 	match c:
 		Currency.POOP:
