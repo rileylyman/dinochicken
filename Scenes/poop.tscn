@@ -31,5 +31,4 @@ texture_filter = 1
 position = Vector2(0, 25)
 sprite_frames = SubResource("SpriteFrames_hgema")
 animation = &"pooping"
-frame_progress = 0.40507874
 script = ExtResource("5_7xh6s")

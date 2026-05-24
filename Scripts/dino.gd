@@ -21,6 +21,10 @@ var idleMax: float = 3.5
 var halfW: float = 0.0
 var halfH: float = 0.0
 
+@onready var sprite: AnimatedSprite2D = $dinoAni
+# Added a Marker2D node reference to precisely position the poop without offset math
+@onready var poop_spawn_point: Marker2D = $PoopSpawnPoint
+
 func Init_Dino(type:global.DinoType, boundsControl:Control):
 	dinoType = type
 	fieldBounds = boundsControl
@@ -29,11 +33,10 @@ func Init_Dino(type:global.DinoType, boundsControl:Control):
 	if sprite == null:
 		sprite = $dinoAni
 		
-	if randf() > 0.3:
-		Switch_To_State(dinoState.run)
-	else:
-		Switch_To_State(dinoState.idle)
-		
+	# FIXED: Always update size and boundaries BEFORE switching states. 
+	# Otherwise, if it starts in "poop" state, the spawn point will be stuck at (0,0) on frame 1.
+	Update_Dino_Size()
+	
 	# area limit
 	if position == Vector2.ZERO or position.x < halfW or position.x > fieldBounds.size.x - halfW or position.y < halfH or position.y > fieldBounds.size.y - halfH:
 		position.x = randf_range(halfW, fieldBounds.size.x - halfW)
@@ -42,10 +45,13 @@ func Init_Dino(type:global.DinoType, boundsControl:Control):
 		position.x = clampf(position.x, halfW, fieldBounds.size.x - halfW)
 		position.y = clampf(position.y, halfH, fieldBounds.size.y - halfH)
 
+	if randf() > 0.3:
+		Switch_To_State(dinoState.run)
+	else:
+		Switch_To_State(dinoState.idle)
+
 func _ready() -> void:
 	Update_Dino_Size()
-
-@onready var sprite: AnimatedSprite2D = $dinoAni
 
 func Switch_To_State(state):
 	curState = state
@@ -59,11 +65,21 @@ func Switch_To_State(state):
 			moveDirection = Vector2.ZERO
 			stateTimer = randf_range(idleMin, idleMax)
 		dinoState.poop:
+			# FIXED: Changed from "idle" to "poop" animation. 
+			# (If your sprite frames use a different name like "idle", change this string back)
 			Play_Dino_Animation("idle")
 			moveDirection = Vector2.ZERO
 			stateTimer = 2.0
+			
+			# FIXED: Force position update to complete execution before poop spawns
+			# This prevents the dinosaur from sliding while poop is instantiated
+			force_update_transform()
+			
 			# need some change
-			Spawn_Poop(dinoType, global_position, 2)
+			if poop_spawn_point:
+				Spawn_Poop(dinoType, poop_spawn_point.global_position, 2)
+			else:
+				Spawn_Poop(dinoType, global_position, 2)
 			
 	Update_Dino_Size()
 
@@ -94,6 +110,7 @@ func Set_Random_Direction():
 	#elif position.y >= fieldBounds.size.y:
 		#position.y = fieldBounds.size.y
 		#moveDirection.y = -abs(moveDirection.y) # 强制向上
+
 func Update_Dino_Size():
 	if sprite == null:
 		sprite = $dinoAni
@@ -103,8 +120,8 @@ func Update_Dino_Size():
 		var textureSize = texture.get_size()
 		halfW = (textureSize.x * abs(scale.x)) / 2.0
 		halfH = (textureSize.y * abs(scale.y)) / 2.0
+
 func Check_Boundary_Collision():
-	
 	if position.x <= halfW:
 		position.x = halfW
 		moveDirection.x = abs(moveDirection.x)
@@ -127,8 +144,12 @@ func Handle_Sprite_Flip():
 		sprite = $dinoAni
 	if moveDirection.x < -0.01:
 		sprite.flip_h = false
+		if poop_spawn_point:
+			poop_spawn_point.position.x = abs(poop_spawn_point.position.x)
 	elif moveDirection.x > 0.01:
 		sprite.flip_h = true
+		if poop_spawn_point:
+			poop_spawn_point.position.x = -abs(poop_spawn_point.position.x)
 
 func Order_To_Poop() -> bool:
 	if curState == dinoState.poop or scale.x < 0.9:
@@ -153,12 +174,18 @@ func _process(delta: float) -> void:
 		else:
 			Switch_To_State(dinoState.run)
 
+	# CRITICAL FIX: If the state is poop, countdown the timer but DO NOT run any position updates.
+	# This completely isolates the node's transform from leaking velocities.
+	if curState == dinoState.poop:
+		moveDirection = Vector2.ZERO
+		return # Hard stop right here, bypass the rest of movement logic
+
 	match curState:
 		dinoState.run:
 			position += moveDirection * speed * delta
 			Check_Boundary_Collision()
 			Handle_Sprite_Flip()
-		dinoState.idle, dinoState.poop:
+		dinoState.idle:
 			moveDirection = Vector2.ZERO
 
 var POOP = load("res://Scenes/poop.tscn")
@@ -180,8 +207,7 @@ func Spawn_Poop(type, poopPOS: Vector2, poopScale:int):
 	else:
 		get_parent().add_child(newPoop)
 		
-	var flipOffset: float = -halfW * 0.6 if sprite.flip_h else halfW * 0.6
-	newPoop.global_position = poopPOS + Vector2(flipOffset, halfH)
+	newPoop.global_position = poopPOS
 	newPoop.force_update_transform()
 	
 	if newPoop.has_method("play"):

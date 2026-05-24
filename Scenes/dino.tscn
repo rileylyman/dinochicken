@@ -240,4 +240,5 @@ unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_koc4u")
 animation = &"velociraptor_run"
-frame_progress = 0.7000675
+frame = 2
+frame_progress = 0.11078005

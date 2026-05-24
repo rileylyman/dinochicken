@@ -23,7 +23,9 @@ func _process(delta: float) -> void:
 		
 		var randomDino = activeDinos.pick_random()
 		if randomDino:
-			randomDino.Spawn_Poop(randomDino.dinoType, randomDino.position + Vector2(0, 100), 1)
+			# FIXED: Do not bypass the state machine! 
+			# Tell the dinosaur to enter its poop state properly so it completely stops running.
+			randomDino.Order_To_Poop()
 
 # Dino Number
 func Initialize_Dino_Number():
