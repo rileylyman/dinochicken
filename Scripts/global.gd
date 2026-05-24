@@ -4,7 +4,7 @@ enum DinoType {eoraptor, coelophysis, scutellosaurus, Trex}
 enum Currency {POOP, DNA, FOOD,}
 var curDinoType:DinoType = DinoType.eoraptor
 
-var amountDNA: float = 0.0
+var amountDNA: float = 50.0
 var amountPOOP: float = 0.0
 var amountFOOD: float = 0.0
 
@@ -12,10 +12,13 @@ func Change_Currency_Amount(c, a: float):
 	match c:
 		Currency.POOP:
 			amountPOOP = snapped(amountPOOP + a, 0.01)
+			tmpAmountPOOP = amountPOOP
 		Currency.DNA:
 			amountDNA = snapped(amountDNA + a, 0.01)
+			tmpAmountDNA = amountDNA
 		Currency.FOOD:
 			amountFOOD = snapped(amountFOOD + a, 0.01)
+			tmpAmountFOOD = amountFOOD
 
 func Get_Currency_Amount(c):
 	match c:
@@ -58,4 +61,5 @@ func _process(delta: float) -> void:
 		amountDNA = tmpAmountDNA
 		amountFOOD = tmpAmountFOOD
 		amountPOOP = tmpAmountPOOP
+
 		timer = 0.0
