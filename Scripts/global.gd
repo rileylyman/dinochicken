@@ -1,10 +1,10 @@
 extends Node
 
-enum DinoType {eoraptor, coelophysis, scutellosaurus, Trex}
+enum DinoType {eoraptor, coelophysis, scutellosaurus, Trex, brontosaurus, protoceratops, spinosaurus, velociraptor}
 enum Currency {POOP, DNA, FOOD,}
-var curDinoType:DinoType = DinoType.eoraptor
+var curDinoType:DinoType = DinoType.brontosaurus
 
-var amountDNA: float = 50.0
+var amountDNA: float = 1500.0
 var amountPOOP: float = 0.0
 var amountFOOD: float = 0.0
 
@@ -40,7 +40,15 @@ func Get_Dino_Name_String(type:DinoType):
 			return "scutellosaurus"
 		DinoType.Trex:
 			return "Trex"
-			
+		DinoType.brontosaurus:
+			return "brontosaurus"
+		DinoType.protoceratops:
+			return "protoceratops"
+		DinoType.spinosaurus:
+			return "spinosaurus"
+		DinoType.velociraptor:
+			return "velociraptor"
+		
 ### Incremental Test		
 var timer: float = 0.0
 var speedDNA = 0.5
