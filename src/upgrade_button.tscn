@@ -32,7 +32,7 @@ layout_mode = 2
 size_flags_vertical = 1
 mouse_filter = 1
 mouse_default_cursor_shape = 2
-text = "- Hire lab worker"
+text = "- FILL ME IN"
 vertical_alignment = 1
 
 [node name="Control" type="Control" parent="MainRow/Label" unique_id=349293062]
@@ -57,7 +57,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_type_variation = &"UpgradeButton"
-text = "50 DNA"
+text = "0 P"
 
 [node name="Control" type="Control" parent="." unique_id=607880085]
 layout_mode = 2
@@ -94,6 +94,7 @@ theme_override_constants/separation = 25
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 0.345)
 layout_mode = 2
+text = "FILL ME IN"
 label_settings = SubResource("LabelSettings_xyia7")
 autowrap_mode = 3
 
@@ -101,6 +102,7 @@ autowrap_mode = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 0.245)
 layout_mode = 2
+text = "0/0 P"
 autowrap_mode = 3
 
 [connection signal="mouse_entered" from="MainRow/Label" to="." method="_on_main_row_mouse_entered"]

@@ -59,4 +59,3 @@ func _input(event: InputEvent) -> void:
 		if hovered == self or self.is_ancestor_of(hovered):
 			if get_tree().current_scene is RootUi:
 				get_tree().current_scene.send_floater_to_front(self)
-

@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://bf0h7oo3ukhat"]
+
+[ext_resource type="Texture2D" uid="uid://p557e5egwgrj" path="res://Assets/tmp/tmpDinosaur1_idle_1.png" id="1_7ycc7"]
+[ext_resource type="Texture2D" uid="uid://cavp4nu7yrehw" path="res://Assets/formal/T-re x/T-re x/T_rex-1.png" id="1_fdhvj"]
+[ext_resource type="Script" uid="uid://ce266tp3e3xip" path="res://Scripts/dino.gd" id="1_ra2gu"]
+[ext_resource type="Texture2D" uid="uid://dpse21y2j8np7" path="res://Assets/tmp/tmpDinosaur1_idle_2.png" id="2_hmd0f"]
+[ext_resource type="Texture2D" uid="uid://be23dwdfrkha4" path="res://Assets/formal/T-re x/T-re x/T_rex-2.png" id="2_ra2gu"]
+[ext_resource type="Texture2D" uid="uid://3vk5tt0kqdi7" path="res://Assets/formal/T-re x/T-re x/T_rex-3.png" id="3_41muc"]
+[ext_resource type="Texture2D" uid="uid://bv0xjrg3a8r1c" path="res://Assets/formal/eoraptor/eoraptor/eoraptor-1.png" id="3_nxp0r"]
+[ext_resource type="Texture2D" uid="uid://dnsrrfw7j6x03" path="res://Assets/formal/T-re x/T-re x/T_rex-4.png" id="4_cldwm"]
+[ext_resource type="Texture2D" uid="uid://664h8qd1vrk0" path="res://Assets/formal/eoraptor/eoraptor/eoraptor-2.png" id="4_sudc8"]
+[ext_resource type="Texture2D" uid="uid://cbdorrl4lgvr2" path="res://Assets/formal/eoraptor/eoraptor/eoraptor-3.png" id="5_bu2is"]
+[ext_resource type="Texture2D" uid="uid://c76nxhbmtqr82" path="res://Assets/formal/coelophysis/coelophysis/coelophysis-1.png" id="5_wnbdv"]
+[ext_resource type="Texture2D" uid="uid://ced53xm0eyo1y" path="res://Assets/formal/eoraptor/eoraptor/eoraptor-4.png" id="6_03lk2"]
+[ext_resource type="Texture2D" uid="uid://ccng2v377wwl" path="res://Assets/formal/coelophysis/coelophysis/coelophysis-2.png" id="6_bib0o"]
+[ext_resource type="Texture2D" uid="uid://cjreh2f6tg681" path="res://Assets/formal/coelophysis/coelophysis/coelophysis-3.png" id="7_w30g5"]
+[ext_resource type="Texture2D" uid="uid://dd2hkg5vg4rqj" path="res://Assets/formal/coelophysis/coelophysis/coelophysis-4.png" id="8_rs3cf"]
+[ext_resource type="Texture2D" uid="uid://biihghwse0ikq" path="res://Assets/formal/scutellosaurus/scutellosaurus/scutellosaurus-1.png" id="15_jdjs6"]
+[ext_resource type="Texture2D" uid="uid://d273d33ja13cw" path="res://Assets/formal/scutellosaurus/scutellosaurus/scutellosaurus-2.png" id="16_yxg1p"]
+[ext_resource type="Texture2D" uid="uid://bc7573tjkqqkf" path="res://Assets/formal/scutellosaurus/scutellosaurus/scutellosaurus-3.png" id="17_2cbf0"]
+[ext_resource type="Texture2D" uid="uid://cf38dou6sapqy" path="res://Assets/formal/scutellosaurus/scutellosaurus/scutellosaurus-4.png" id="18_cfqub"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_koc4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fdhvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ra2gu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_41muc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cldwm")
+}],
+"loop": true,
+"name": &"Trex_run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wnbdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bib0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w30g5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rs3cf")
+}],
+"loop": true,
+"name": &"coelophysis_run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7ycc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hmd0f")
+}],
+"loop": true,
+"name": &"dinoName_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nxp0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sudc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bu2is")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_03lk2")
+}],
+"loop": true,
+"name": &"eoraptor_run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_jdjs6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_yxg1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2cbf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cfqub")
+}],
+"loop": true,
+"name": &"scutellosaurus_run",
+"speed": 5.0
+}]
+
+[node name="Dino" type="Node2D" unique_id=1437172782]
+script = ExtResource("1_ra2gu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1405086807]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_koc4u")
+animation = &"Trex_run"
