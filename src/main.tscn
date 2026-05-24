@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c62wanqna80r3"]
+
+[node name="Main" type="Node2D" unique_id=958720384]
+
+[node name="Label" type="Label" parent="." unique_id=872431645]
+offset_left = 111.0
+offset_top = 164.0
+offset_right = 1112.0
+offset_bottom = 438.0
+theme_override_font_sizes/font_size = 201
+text = "Hello rena"
+
+[node name="Label2" type="Label" parent="." unique_id=968366189]
+offset_left = 870.0
+offset_top = 508.0
+offset_right = 928.0
+offset_bottom = 531.0
+text = "Hi Riley"

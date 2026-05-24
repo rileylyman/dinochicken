@@ -239,6 +239,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_02y5j")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("5_pbw6q")
 
 [node name="DinoArea" type="Control" parent="FieldFloater" unique_id=561177774]
@@ -255,6 +256,7 @@ offset_right = 210.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="FarmFloater" parent="." unique_id=1670280124 node_paths=PackedStringArray("fade_out_target") instance=ExtResource("3_8ec3e")]
 unique_name_in_owner = true

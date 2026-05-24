@@ -12,7 +12,7 @@ func currency_to_string(c) -> String:
 			return "F"
 		_:
 			assert(false)
-			return "Poop"
+			return ""
 
 
 
@@ -30,11 +30,13 @@ func _ready() -> void:
 	%Tooltip.visible = false
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint(): 
-		return
 	%Label.text = "- %s" % title
 	%Button.text = "%d %s" % [cost, currency_to_string(currency)]
 	%Desc.text = desc # description
+	%CostProg.text = "0/%d %s" % [cost, currency_to_string(currency)]
+
+	if Engine.is_editor_hint(): 
+		return
 	%CostProg.text = "%s/%d %s" % [str(global.Get_Currency_Amount(currency)), cost, currency_to_string(currency)]
 
 
@@ -49,7 +51,7 @@ func _on_hover(control: Control) -> void:
 	%Tooltip.global_position.y = control.get_global_rect().position.y
 
 	if %Tooltip.get_global_rect().end.x > get_viewport().size.x:
-		%Too#ltip.global_position.x = control.get_global_rect().position.x - %Tooltip.get_size().x - 8
+		#%Tooltip.global_position.x = control.get_global_rect().position.x - %Tooltip.get_size().x - 8
 		%Tooltip.global_position.x = control.get_global_rect().position.x - %Tooltip.size.x - 8
 	#
 	%Tooltip.force_update_transform()
