@@ -18,6 +18,16 @@ func currency_to_string(c: Currency) -> String:
 		_:
 			assert(false)
 			return "Poop"
+func Get_Currency_Amount(c:Currency):
+	if Engine.is_editor_hint():
+		return "0"
+	match c:
+		Currency.POOP:
+			return str(global.amountPoop)
+		Currency.DNA:
+			return str(global.amountDNA)
+		Currency.FOOD:
+			return str(global.amountFood)
 
 @export_multiline var title: String = "FILL ME IN"
 @export_multiline var desc: String = "FILL ME IN"
@@ -35,11 +45,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	%Label.text = "- %s" % title
 	%Button.text = "%d %s" % [cost, currency_to_string(currency)]
-	%Desc.text = desc
-	%CostProg.text = "0/%d %s" % [cost, currency_to_string(currency)]
+	%Desc.text = desc # description
+	%CostProg.text = "%s/%d %s" % [Get_Currency_Amount(currency), cost, currency_to_string(currency)]
 
 	if Engine.is_editor_hint():
 		return
+			
 
 
 func _on_hover(control: Control) -> void:
